@@ -1,12 +1,20 @@
 <template>
     <div>
-        学习使用
+        <ul>
+            <li v-for="(item, index) in todos" :key="index">{{item.text}}</li>
+        </ul>
     </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  props: {
+      todos: {
+          type: Array,
+          default: []
+      }
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -17,16 +25,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+/* scoped 规定了css的作用域 */
 h1, h2 {
   font-weight: normal;
 }
 ul {
   list-style-type: none;
   padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
 }
 a {
   color: #42b983;
