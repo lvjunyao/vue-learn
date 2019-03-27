@@ -1,25 +1,21 @@
 <template>
-    <div>
-        <ul>
-            <li v-for="(item, index) in todos" :key="index">{{item.text}}</li>
-        </ul>
-    </div>
+      <li style="font-weight: bold">{{item.text}}</li>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-      todos: {
-          type: Array,
-          default: []
-      }
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+    name: 'HelloWorld',
+    props: {
+        item: {
+            type: Object,
+            default: () => {}
+        }
+    },
+    data () {
+        return {
+            msg: 'Welcome to Your Vue.js App'
+        }
     }
-  }
 }
 </script>
 
