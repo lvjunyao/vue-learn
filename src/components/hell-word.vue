@@ -8,18 +8,18 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-      todos: {
-          type: Array,
-          default: []
-      }
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+    name: 'HelloWorld',
+    props: {
+        todos: {
+            type: Array,
+            default: []
+        }
+    },
+    data () {
+        return {
+            msg: 'Welcome to Your Vue.js App'
+        }
     }
-  }
 }
 </script>
 
