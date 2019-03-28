@@ -1,19 +1,20 @@
 <template>
-      <li style="font-weight: bold">{{item.text}}</li>
+    <input type="number" v-model="count">
 </template>
 
 <script>
 export default {
-    name: 'HelloWorld',
+    name: 'ButtonCounter',
     props: {
-        item: {
-            type: Object,
-            default: () => {}
-        }
     },
     data () {
         return {
-            msg: 'Welcome to Your Vue.js App'
+            count: 0
+        }
+    },
+    watch: {
+        count (val, oldval) {
+            this.$emit('input', val)
         }
     }
 }

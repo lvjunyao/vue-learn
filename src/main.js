@@ -4,8 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import TestSlot from '@/components/test-slot'
+import TestProps from '@/components/test-props'
+import TestPropsTwo from '@/components/test-props-two'
 Vue.config.productionTip = false
-
+// Vue.use({
+//     HellWord
+// })
+Vue.component(TestSlot.name, TestSlot)
+Vue.component(TestProps.name, TestProps)
+Vue.component(TestPropsTwo.name, TestPropsTwo)
+// Vue.use(TestSlot, {name: 'v-touch'})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

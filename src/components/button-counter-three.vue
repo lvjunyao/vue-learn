@@ -1,19 +1,16 @@
 <template>
-      <li style="font-weight: bold">{{item.text}}</li>
+    <button v-on:click="$emit('update:objtitle', ++myObj.mycount)">You clicked me {{ myObj }} times.</button>
 </template>
 
 <script>
 export default {
-    name: 'HelloWorld',
+    name: 'ButtonCounterThree',
     props: {
-        item: {
-            type: Object,
-            default: () => {}
-        }
+        obj: Object
     },
     data () {
         return {
-            msg: 'Welcome to Your Vue.js App'
+            myObj: this.obj
         }
     }
 }
