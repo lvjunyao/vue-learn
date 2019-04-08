@@ -125,6 +125,9 @@
             </template> -->
             <h1>Here might be a page title</h1>
         </test-slot>
+
+        <h1>辅助测试路由</h1>
+        <button @click="handleNodeTest()">请求数据</button>
     </div>
 </template>
 
@@ -237,6 +240,13 @@ export default {
     },
     handleOne (msg) {
       console.log(msg)
+    },
+
+    handleNodeTest () {
+      this.$http.post('http://localhost:3300/b', {name: '黄林'})
+      .then(data => {
+        console.log(data)
+      })
     }
   }
 }
