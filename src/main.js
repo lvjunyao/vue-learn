@@ -16,6 +16,15 @@ Vue.component(TestProps.name, TestProps)
 Vue.component(TestPropsTwo.name, TestPropsTwo)
 // Vue.use(TestSlot, {name: 'v-touch'})
 /* eslint-disable no-new */
+
+// 注册一个全局自定义指令 `v-focus`
+Vue.directive('autofocus', {
+    // 当被绑定的元素插入到 DOM 中时……
+    inserted: function (el) {
+        // 聚焦元素
+        el.focus()
+    }
+})
 new Vue({
   el: '#app',
   router,
