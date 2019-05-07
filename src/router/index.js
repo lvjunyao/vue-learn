@@ -7,6 +7,7 @@ import render from './render' // 自定义指令模块
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     ...render,
     ...directives,
