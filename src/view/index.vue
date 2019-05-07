@@ -128,6 +128,16 @@
 
         <h1>辅助测试路由</h1>
         <button @click="handleNodeTest()">请求数据</button>
+        <button @click="$router.push('/learn-slot')"></button>
+        <h1>过渡</h1>
+
+        <button @click="show = !show">
+            Toggle
+        </button>
+
+        <transition name="fade">
+            <p v-show="show">hello</p>
+        </transition>
     </div>
 </template>
 
@@ -143,6 +153,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      show: true,
       msg: 1,
       age: 0,
       obj: {
@@ -268,5 +279,12 @@ a {
 
 .bg-color {
   background-color: #f5f5f5;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

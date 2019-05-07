@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <test-slot>13256</test-slot>
+    <!-- <test-slot>13256</test-slot> -->
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted () {
+    this.$axjx.get('./static/data.json').then(data => {
+      console.log(data)
+    })
+  }
 }
 </script>
 

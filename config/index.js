@@ -3,8 +3,30 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
+const environments = {
+  development: {
+    // baseURL: '//adminapi.9000ji.com',
+    baseURL: '//47.92.29.189:7012',
+    // baseURL: '//192.168.0.178:7012',
+    uploadBaseUrl: '//47.92.29.189:9001/upload',
+    multiUploadBaseUrl: '//47.92.29.189:9001/multiUpload',
+    payUrl: '//icic.9000ji.com'
+  },
+  testing: {
+    baseURL: '//47.92.29.189:7012',
+    uploadBaseUrl: '//47.92.29.189:9001/upload',
+    multiUploadBaseUrl: '//47.92.29.189:9001/multiUpload',
+    payUrl: '//icic.9000ji.com'
+  },
+    production: {
+    baseURL: '//adminapi.9000ji.com',
+    uploadBaseUrl: '//imgService.9000ji.com/upload',
+    multiUploadBaseUrl: '//imgService.9000ji.com/multiUpload',
+    payUrl: '//pay.9000ji.com'
+  }
+}
 module.exports = {
+  environment: environments[process.env.NODE_ENV],
   dev: {
 
     // Paths

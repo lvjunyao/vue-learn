@@ -7,19 +7,29 @@ import Axios from 'axios'
 import TestSlot from '@/components/test-slot'
 import TestProps from '@/components/test-props'
 import TestPropsTwo from '@/components/test-props-two'
+import Http from './utils/http'
+import $axios from './utils/axios'
+
+Vue.prototype.$axios = Http([
+  './static/test.json',
+  './static/test1.json'
+])
+
+console.log(Vue.prototype.$axios)
 Vue.config.productionTip = false
-// Vue.use({
-//     HellWord
-// })
+
 Vue.prototype.$http = Axios
+
+Vue.prototype.$axjx = $axios
+
+// 全局注册组件
 Vue.component(TestSlot.name, TestSlot)
 Vue.component(TestProps.name, TestProps)
 Vue.component(TestPropsTwo.name, TestPropsTwo)
-// Vue.use(TestSlot, {name: 'v-touch'})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
+  render: h => h(App)
 })
