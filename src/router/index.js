@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Index from '@/view/index'
+
+import directives from './directives' // 自定义指令模块
+import render from './render' // 自定义指令模块
 Vue.use(Router)
 /**
 * 处理路由页面切换时，异步组件加载过渡的处理函数
@@ -32,6 +36,8 @@ const LearnSlot = () => lazyLoadView(import('@/view/learn-slot'))
 const router = new Router({
   mode: 'history',
   routes: [
+    ...render,
+    ...directives,
     {
 			path: '/',
 			redirect: '/home'
