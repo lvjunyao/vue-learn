@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>自定义指令</h1>
+        <input type="text" v-model="obj.message" v-demo:foo.a.b="message" placeholder="自动获取加点">
         <input type="text" v-model="message" v-demo:foo.a.b="message" placeholder="自动获取加点">
 
         <p>Scroll down the page</p>
@@ -13,7 +14,10 @@ export default {
     name: 'directives',
     data () {
         return {
-            message: '1111',
+            obj: {
+                message: '1111'
+            },
+            message: '123',
             dynamicleft: 500
         }
     },
@@ -82,6 +86,19 @@ export default {
                 console.log(el)
                 // el.focus()
             }
+        }
+    },
+    watch: {
+        obj: {
+            handler (oldVal, newVal) {
+                console.log(oldVal)
+                console.log(newVal)
+            },
+            deep: true
+        },
+        message (oldVal, newVal) {
+            console.log(oldVal)
+            console.log(newVal)
         }
     },
     components: {
